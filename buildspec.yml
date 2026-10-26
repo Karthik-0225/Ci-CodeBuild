@@ -1,0 +1,27 @@
+
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies"
+
+  pre_build:
+    commands:
+      - echo "Checking source files"
+      - test -f index.html
+
+  build:
+    commands:
+      - echo "Building application"
+      - mkdir -p output
+      - cp index.html output/
+
+  post_build:
+    commands:
+      - echo "Build completed successfully"
+
+artifacts:
+  base-directory: output
+  files:
+    - index.html
